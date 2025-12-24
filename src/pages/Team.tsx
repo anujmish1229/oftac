@@ -11,9 +11,6 @@ const Team = () => {
         <section className="py-20 lg:py-32 bg-gradient-to-b from-cream to-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
-              <span className="inline-block px-4 py-1.5 bg-primary/20 text-primary rounded-full text-sm font-medium mb-6">
-                Meet Our Team
-              </span>
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
                 The People Behind
                 <span className="text-honey"> OFTAC</span>

@@ -2,7 +2,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { TrendingUp, Mail, Users, Hospital, DollarSign, Twitter, Instagram } from "lucide-react";
 
-const projectComponents = [
+const contactInfo = [
   {
     icon: Instagram,
     title: "Beehives Distribution",
@@ -20,7 +20,7 @@ const projectComponents = [
   },
 ];
 
-const impactAreas = [
+const projectComponents = [
   {
     icon: DollarSign,
     title: "Economic Empowerment & Financial Independence",
@@ -73,7 +73,7 @@ const About = () => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {projectComponents.map((item) => (
+              {contactInfo.map((item) => (
                 <div
                   key={item.title}
                   className="bg-forest-light/30 backdrop-blur-sm rounded-2xl p-8 border border-secondary-foreground/10"
@@ -88,38 +88,6 @@ const About = () => {
             </div>
           </div>
         </section>
-
-
-        {/* Project Components */}
-        <section className="py-20 lg:py-32 bg-background">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-                Components of the Project
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Our comprehensive approach ensures sustainable success for every household we work with.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {projectComponents.map((item) => (
-                <div
-                  key={item.title}
-                  className="bg-card rounded-2xl p-8 border border-border hover:border-honey/50 transition-all duration-300 group hover:shadow-lg"
-                >
-                  <div className="w-16 h-16 rounded-2xl bg-honey/20 flex items-center justify-center mb-6 group-hover:bg-honey group-hover:scale-110 transition-all duration-300">
-                    <item.icon className="w-8 h-8 text-honey group-hover:text-secondary transition-colors duration-300" />
-                  </div>
-                  <h3 className="font-display text-xl font-bold text-card-foreground mb-3">{item.title}</h3>
-                  <p className="text-muted-foreground">{item.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        
       </main>
       <Footer />
     </div>
