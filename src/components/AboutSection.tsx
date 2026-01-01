@@ -17,7 +17,7 @@ export const AboutSection = () => {
               self-sufficient lives.
             </p>
             <p>
-              Our organization has been operating for just over a year and has recently been officially 
+              Our organization has been operating for almost 3 years and has recently been officially 
               registered in Uganda as a community-based organization. We are growing every day, driven by 
               the passion and resilience of the communities we serve.
             </p>
