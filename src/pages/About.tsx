@@ -70,7 +70,7 @@ const About = () => {
               <div>
                 <p className="text-primary-foreground/80 text-lg">As of January 2025</p>
                 <p className="text-3xl md:text-4xl font-display font-bold text-primary-foreground">
-                  50 households are already producing honey
+                  79 people are already producing honey and experiencing financial independence with a steady source of income
                 </p>
                 <p className="text-primary-foreground/80 text-lg">and experiencing financial independence</p>
               </div>
