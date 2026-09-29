@@ -1,17 +1,4 @@
-import { Mail, MapPin, Hexagon, Menu } from "lucide-react";
-import logo from "@/assets/logo.png";
-import { Link, useLocation } from "react-router-dom";
-
-const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Our Team", href: "/team" },
-  { name: "Shop", href: "/shop" },
-  { name: "Contact", href: "/contact" },
-  { name: "Donate", href: "/donate" },
-];
-
-var isMenuOpen = false;
+import { Mail } from "lucide-react";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();

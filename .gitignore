@@ -10,18 +10,24 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+build
 *.local
 
 # Environment variables
 .env
-.env.local
-.env.production
+.env.*
+!.env.example
+
+# Netlify local state
+.netlify
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
+.claude
 .DS_Store
+Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj

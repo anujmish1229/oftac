@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { DonationForm } from "@/components/DonationForm";
 import { AlternativePaymentInfo } from "@/components/AlternativePaymentInfo";
-import { Heart, Users, Hexagon, GraduationCap, Home, Sparkles } from "lucide-react";
+import { Heart } from "lucide-react";
 
 const impactStats = [
   { value: "$1,800", label: "Potential annual income per trained beekeeper" },

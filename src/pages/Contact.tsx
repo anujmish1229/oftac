@@ -1,8 +1,7 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { TrendingUp, Mail, Users, Hospital, DollarSign, Instagram } from "lucide-react";
+import { Mail, Instagram, LucideIcon } from "lucide-react";
 import whatsappIcon from "@/assets/whatsapp.svg";
-import { LucideIcon } from "lucide-react";
 
 const contactInfo: Array<{
   icon: LucideIcon | string;

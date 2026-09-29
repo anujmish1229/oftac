@@ -15,9 +15,28 @@ const donationTiers = [
   { amount: 1000000, label: "UGX 1M", impact: "Trains one family completely" },
 ];
 
+// Minimal typings for the Flutterwave inline checkout script loaded in index.html
+interface FlutterwavePaymentResponse {
+  status: string;
+  transaction_id?: number;
+  tx_ref?: string;
+}
+
+interface FlutterwaveCheckoutConfig {
+  public_key: string;
+  tx_ref: string;
+  amount: number;
+  currency: string;
+  payment_options: string;
+  customer: { email: string; phone_number: string; name: string };
+  customizations: { title: string; description: string; logo: string };
+  callback: (response: FlutterwavePaymentResponse) => void;
+  onclose: () => void;
+}
+
 declare global {
   interface Window {
-    FlutterwaveCheckout: any;
+    FlutterwaveCheckout: (config: FlutterwaveCheckoutConfig) => void;
   }
 }
 
@@ -88,7 +107,7 @@ export const DonationForm = () => {
         description: "Support refugee families through beekeeping",
         logo: "https://oftac.org/logo.png", // Update with your actual logo URL
       },
-      callback: (response: any) => {
+      callback: (response) => {
         console.log("Payment response:", response);
         setIsProcessing(false);
 
