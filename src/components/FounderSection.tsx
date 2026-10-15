@@ -16,7 +16,7 @@ export const FounderSection = () => {
                 alt="Samuel Usabuwera, Founder of OFTAC"
                 className="w-fullobject-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-foreground/40 to-transparent" />
             </div>
             {/* Decorative Elements */}
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl" />

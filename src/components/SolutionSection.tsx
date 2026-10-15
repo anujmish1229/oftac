@@ -37,7 +37,7 @@ export const SolutionSection = () => {
           {initiatives.map((item, index) => (
             <div
               key={item.title}
-              className="bg-forest-light/30 backdrop-blur-sm rounded-2xl p-8 border border-secondary-foreground/10 hover:border-honey/50 transition-all duration-300 group"
+              className="bg-forest-light/30 backdrop-blur-xs rounded-2xl p-8 border border-secondary-foreground/10 hover:border-honey/50 transition-all duration-300 group"
             >
               <div className="w-16 h-16 rounded-2xl bg-honey/20 flex items-center justify-center mb-6 group-hover:bg-honey group-hover:scale-110 transition-all duration-300">
                 <item.icon className="w-8 h-8 text-honey group-hover:text-secondary transition-colors duration-300" />

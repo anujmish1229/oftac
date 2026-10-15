@@ -53,7 +53,7 @@ const Shop = () => {
       <Header />
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-20 lg:py-32 bg-gradient-to-b from-cream to-background">
+        <section className="py-20 lg:py-32 bg-linear-to-b from-cream to-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <span className="inline-block px-4 py-1.5 bg-honey/20 text-honey-dark rounded-full text-sm font-medium mb-6">
@@ -80,7 +80,7 @@ const Shop = () => {
                   key={product.id}
                   className={`rounded-3xl p-8 lg:p-10 border-2 transition-all duration-300 hover:shadow-xl ${
                     product.primary 
-                      ? "bg-gradient-to-br from-honey/10 to-honey/5 border-honey" 
+                      ? "bg-linear-to-br from-honey/10 to-honey/5 border-honey" 
                       : "bg-card border-border hover:border-honey/50"
                   }`}
                 >
@@ -108,7 +108,7 @@ const Shop = () => {
                   <ul className="space-y-2 mb-8">
                     {product.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Heart className="w-4 h-4 text-honey flex-shrink-0" />
+                        <Heart className="w-4 h-4 text-honey shrink-0" />
                         {feature}
                       </li>
                     ))}
@@ -147,7 +147,7 @@ const Shop = () => {
               {differentiators.map((item) => (
                 <div
                   key={item.title}
-                  className="bg-forest-light/30 backdrop-blur-sm rounded-2xl p-8 border border-secondary-foreground/10 text-center"
+                  className="bg-forest-light/30 backdrop-blur-xs rounded-2xl p-8 border border-secondary-foreground/10 text-center"
                 >
                   <div className="w-14 h-14 rounded-full bg-honey/20 flex items-center justify-center mx-auto mb-6">
                     <item.icon className="w-7 h-7 text-honey" />

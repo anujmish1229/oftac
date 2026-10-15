@@ -11,7 +11,7 @@ export const HeroSection = () => {
           alt="Community beekeeping in Uganda"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
+        <div className="absolute inset-0 bg-linear-to-b from-background/90 via-background/70 to-background" />
       </div>
 
       {/* Honeycomb Pattern Overlay */}
