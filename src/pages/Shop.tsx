@@ -2,6 +2,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Droplets, Sparkles, Leaf, Heart, ShieldCheck, Users } from "lucide-react";
+import { CONTACT_EMAIL } from "@/lib/contact";
 
 const products = [
   {
@@ -118,8 +119,10 @@ const Shop = () => {
                       <p className="text-3xl font-display font-bold text-foreground">{product.price}</p>
                       <p className="text-sm text-muted-foreground">per {product.size}</p>
                     </div>
-                    <Button className={product.primary ? "" : "bg-secondary text-secondary-foreground hover:bg-secondary/90"}>
-                      Contact to Order
+                    <Button className={product.primary ? "" : "bg-secondary text-secondary-foreground hover:bg-secondary/90"} asChild>
+                      <a href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Order: ${product.name}`)}`}>
+                        Contact to Order
+                      </a>
                     </Button>
                   </div>
                 </div>
@@ -168,7 +171,7 @@ const Shop = () => {
                 Contact us directly to place an order or inquire about bulk purchases and partnerships.
               </p>
               <Button size="lg" asChild>
-                <a href="mailto:info@oftac.org">Get in Touch</a>
+                <a href={`mailto:${CONTACT_EMAIL}`}>Get in Touch</a>
               </Button>
             </div>
           </div>

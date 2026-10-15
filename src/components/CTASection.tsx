@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Heart, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export const CTASection = () => {
   return (

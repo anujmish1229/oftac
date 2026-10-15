@@ -1,5 +1,3 @@
-import { Users, TrendingDown, DollarSign, Heart } from "lucide-react";
-
 const stats = [
   {
     value: "144,000",

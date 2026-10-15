@@ -1,9 +1,9 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { DonationForm } from "@/components/DonationForm";
-import { AlternativePaymentInfo } from "@/components/AlternativePaymentInfo";
-import { Heart, Users, Hexagon, GraduationCap, Home, Sparkles } from "lucide-react";
+import { WaysToDonate } from "@/components/WaysToDonate";
+import { CONTACT_EMAIL } from "@/lib/contact";
+import { Heart } from "lucide-react";
 
 const impactStats = [
   { value: "$1,800", label: "Potential annual income per trained beekeeper" },
@@ -53,7 +53,7 @@ const Donate = () => {
           </div>
         </section>
 
-        {/* Donation Form */}
+        {/* Ways to Donate */}
         <section className="py-20 lg:py-32 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
@@ -61,20 +61,14 @@ const Donate = () => {
                 Make an Impact
               </span>
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-                Donate with Mobile Money
+                Ways to Give
               </h2>
               <p className="text-lg text-muted-foreground">
                 Every contribution, no matter the size, creates lasting change in the lives of refugee families.
               </p>
             </div>
 
-            {/* Donation Form Component */}
-            <DonationForm />
-
-            {/* Alternative Payment Methods */}
-            <div className="mt-16">
-              <AlternativePaymentInfo />
-            </div>
+            <WaysToDonate />
           </div>
         </section>
 
@@ -112,7 +106,7 @@ const Donate = () => {
                   Questions about donating or want to discuss partnership opportunities?
                 </p>
                 <Button size="lg" className="bg-honey text-secondary hover:bg-honey-light" asChild>
-                  <a href="mailto:info@oftac.org">Contact Our Team</a>
+                  <a href={`mailto:${CONTACT_EMAIL}`}>Contact Our Team</a>
                 </Button>
               </div>
             </div>

@@ -1,13 +1,14 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { TrendingUp, Mail, Users, Hospital, DollarSign, Instagram } from "lucide-react";
+import { Mail, Instagram, LucideIcon } from "lucide-react";
 import whatsappIcon from "@/assets/whatsapp.svg";
-import { LucideIcon } from "lucide-react";
+import { CONTACT_EMAIL, WHATSAPP_DISPLAY, WHATSAPP_URL } from "@/lib/contact";
 
 const contactInfo: Array<{
   icon: LucideIcon | string;
   title: string;
   description: string;
+  href?: string;
   isImage?: boolean;
 }> = [
   {
@@ -17,14 +18,16 @@ const contactInfo: Array<{
   },
   {
     icon: whatsappIcon,
-    title: "+256 779 948672",
+    title: WHATSAPP_DISPLAY,
     description: "Reach out to us on WhatsApp",
+    href: WHATSAPP_URL,
     isImage: true,
   },
   {
     icon: Mail,
-    title: "oftacorganization@gmail.com",
+    title: CONTACT_EMAIL,
     description: "Reach out to us on Email",
+    href: `mailto:${CONTACT_EMAIL}`,
   },
 ];
 
@@ -65,10 +68,17 @@ const About = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {contactInfo.map((item) => {
                 const IconComponent = item.icon as LucideIcon;
+                const CardTag = item.href ? "a" : "div";
+                const isExternal = item.href?.startsWith("http");
                 return (
-                  <div
+                  <CardTag
                     key={item.title}
-                    className="bg-forest-light/30 backdrop-blur-sm rounded-2xl p-8 border border-secondary-foreground/10"
+                    href={item.href}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
+                    className={`block bg-forest-light/30 backdrop-blur-sm rounded-2xl p-8 border border-secondary-foreground/10 ${
+                      item.href ? "transition-colors hover:border-honey/60" : ""
+                    }`}
                   >
                     <div className="w-14 h-14 rounded-full bg-honey/20 flex items-center justify-center mb-6">
                       {item.isImage ? (
@@ -84,7 +94,7 @@ const About = () => {
                     </div>
                     <h3 className="font-display text-xl font-bold mb-4">{item.title}</h3>
                     <p className="text-secondary-foreground/80 leading-relaxed">{item.description}</p>
-                  </div>
+                  </CardTag>
                 );
               })}
             </div>
