@@ -1,5 +1,5 @@
 import founderImage from "@/assets/founder-portrait.jpg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 export const FounderSection = () => {
   const navigate = useNavigate();

@@ -1,18 +1,19 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Mail, Instagram, LucideIcon } from "lucide-react";
+import { Mail, type LucideIcon } from "lucide-react";
+import InstagramIcon from "@/components/icons/InstagramIcon";
 import whatsappIcon from "@/assets/whatsapp.svg";
 import { CONTACT_EMAIL, WHATSAPP_DISPLAY, WHATSAPP_URL } from "@/lib/contact";
 
 const contactInfo: Array<{
-  icon: LucideIcon | string;
+  icon: LucideIcon | typeof InstagramIcon | string;
   title: string;
   description: string;
   href?: string;
   isImage?: boolean;
 }> = [
   {
-    icon: Instagram,
+    icon: InstagramIcon,
     title: "@OFTAC",
     description: "Reach out to us on Instagram",
   },
@@ -67,7 +68,7 @@ const About = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {contactInfo.map((item) => {
-                const IconComponent = item.icon as LucideIcon;
+                const IconComponent = item.icon as LucideIcon | typeof InstagramIcon;
                 const CardTag = item.href ? "a" : "div";
                 const isExternal = item.href?.startsWith("http");
                 return (
