@@ -1,18 +1,19 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Mail, Instagram, LucideIcon } from "lucide-react";
+import { Mail, type LucideIcon } from "lucide-react";
+import InstagramIcon from "@/components/icons/InstagramIcon";
 import whatsappIcon from "@/assets/whatsapp.svg";
 import { CONTACT_EMAIL, WHATSAPP_DISPLAY, WHATSAPP_URL } from "@/lib/contact";
 
 const contactInfo: Array<{
-  icon: LucideIcon | string;
+  icon: LucideIcon | typeof InstagramIcon | string;
   title: string;
   description: string;
   href?: string;
   isImage?: boolean;
 }> = [
   {
-    icon: Instagram,
+    icon: InstagramIcon,
     title: "@OFTAC",
     description: "Reach out to us on Instagram",
   },
@@ -37,7 +38,7 @@ const About = () => {
       <Header />
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-20 lg:py-32 bg-gradient-to-b from-cream to-background">
+        <section className="py-20 lg:py-32 bg-linear-to-b from-cream to-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
@@ -67,7 +68,7 @@ const About = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {contactInfo.map((item) => {
-                const IconComponent = item.icon as LucideIcon;
+                const IconComponent = item.icon as LucideIcon | typeof InstagramIcon;
                 const CardTag = item.href ? "a" : "div";
                 const isExternal = item.href?.startsWith("http");
                 return (
@@ -76,7 +77,7 @@ const About = () => {
                     href={item.href}
                     target={isExternal ? "_blank" : undefined}
                     rel={isExternal ? "noopener noreferrer" : undefined}
-                    className={`block bg-forest-light/30 backdrop-blur-sm rounded-2xl p-8 border border-secondary-foreground/10 ${
+                    className={`block bg-forest-light/30 backdrop-blur-xs rounded-2xl p-8 border border-secondary-foreground/10 ${
                       item.href ? "transition-colors hover:border-honey/60" : ""
                     }`}
                   >

@@ -44,7 +44,7 @@ const About = () => {
       <Header />
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-20 lg:py-32 bg-gradient-to-b from-cream to-background">
+        <section className="py-20 lg:py-32 bg-linear-to-b from-cream to-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
@@ -123,7 +123,7 @@ const About = () => {
               {impactAreas.map((item) => (
                 <div
                   key={item.title}
-                  className="bg-forest-light/30 backdrop-blur-sm rounded-2xl p-8 border border-secondary-foreground/10"
+                  className="bg-forest-light/30 backdrop-blur-xs rounded-2xl p-8 border border-secondary-foreground/10"
                 >
                   <div className="w-14 h-14 rounded-full bg-honey/20 flex items-center justify-center mb-6">
                     <item.icon className="w-7 h-7 text-honey" />

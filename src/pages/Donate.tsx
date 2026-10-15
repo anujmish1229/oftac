@@ -18,7 +18,7 @@ const Donate = () => {
       <Header />
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-20 lg:py-32 bg-gradient-to-b from-cream to-background relative overflow-hidden">
+        <section className="py-20 lg:py-32 bg-linear-to-b from-cream to-background relative overflow-hidden">
           <div className="absolute inset-0 honeycomb-pattern opacity-30" />
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div className="max-w-4xl mx-auto text-center">
@@ -83,7 +83,7 @@ const Donate = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="bg-forest-light/30 backdrop-blur-sm rounded-2xl p-8 border border-secondary-foreground/10">
+                <div className="bg-forest-light/30 backdrop-blur-xs rounded-2xl p-8 border border-secondary-foreground/10">
                   <h3 className="font-display text-xl font-bold mb-4">Breaking the Cycle</h3>
                   <p className="text-secondary-foreground/80">
                     Instead of temporary relief, your support provides skills and resources that 
@@ -91,7 +91,7 @@ const Donate = () => {
                     of hope for their entire community.
                   </p>
                 </div>
-                <div className="bg-forest-light/30 backdrop-blur-sm rounded-2xl p-8 border border-secondary-foreground/10">
+                <div className="bg-forest-light/30 backdrop-blur-xs rounded-2xl p-8 border border-secondary-foreground/10">
                   <h3 className="font-display text-xl font-bold mb-4">Transparent Impact</h3>
                   <p className="text-secondary-foreground/80">
                     100% of your donation goes directly to supporting refugee families through 

@@ -11,7 +11,7 @@ export const HeroSection = () => {
           alt="Community beekeeping in Uganda"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
+        <div className="absolute inset-0 bg-linear-to-b from-background/90 via-background/70 to-background" />
       </div>
 
       {/* Honeycomb Pattern Overlay */}
@@ -22,7 +22,7 @@ export const HeroSection = () => {
         <div className="max-w-4xl mx-auto animate-fade-up">
           
           
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight sm:leading-none mb-6">
             Empowering Refugees
             <br />
             <span className="text-gradient-honey">One Hive at a Time</span>

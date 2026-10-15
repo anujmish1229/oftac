@@ -8,7 +8,7 @@ const Team = () => {
       <Header />
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-20 lg:py-32 bg-gradient-to-b from-cream to-background">
+        <section className="py-20 lg:py-32 bg-linear-to-b from-cream to-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
@@ -27,8 +27,8 @@ const Team = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-6xl mx-auto">
               <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-br from-honey/30 to-forest/30 rounded-3xl blur-2xl" />
-                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
+                <div className="absolute -inset-4 bg-linear-to-br from-honey/30 to-forest/30 rounded-3xl blur-2xl" />
+                <div className="relative aspect-4/5 rounded-2xl overflow-hidden">
                   <img
                     src={founderPortrait}
                     alt="Samuel Usabuwera, Founder of OFTAC"
