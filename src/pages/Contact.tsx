@@ -2,6 +2,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Mail, Instagram, LucideIcon } from "lucide-react";
 import whatsappIcon from "@/assets/whatsapp.svg";
+import { CONTACT_EMAIL, WHATSAPP_DISPLAY } from "@/lib/contact";
 
 const contactInfo: Array<{
   icon: LucideIcon | string;
@@ -16,13 +17,13 @@ const contactInfo: Array<{
   },
   {
     icon: whatsappIcon,
-    title: "+256 779 948672",
+    title: WHATSAPP_DISPLAY,
     description: "Reach out to us on WhatsApp",
     isImage: true,
   },
   {
     icon: Mail,
-    title: "oftacorganization@gmail.com",
+    title: CONTACT_EMAIL,
     description: "Reach out to us on Email",
   },
 ];

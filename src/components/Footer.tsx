@@ -1,4 +1,5 @@
 import { Mail } from "lucide-react";
+import { CONTACT_EMAIL } from "@/lib/contact";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,7 +15,7 @@ export const Footer = () => {
             <div className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-background/50" />
               <a
-                href="mailto:oftacorganization@gmail.com">oftacorganization@gmail.com</a>
+                href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
             </div>
           </div>
         </div>
