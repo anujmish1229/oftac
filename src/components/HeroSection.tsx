@@ -22,7 +22,7 @@ export const HeroSection = () => {
         <div className="max-w-4xl mx-auto animate-fade-up">
           
           
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight sm:leading-none mb-6">
             Empowering Refugees
             <br />
             <span className="text-gradient-honey">One Hive at a Time</span>
