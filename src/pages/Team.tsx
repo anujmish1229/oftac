@@ -1,4 +1,6 @@
 import founderPortrait from "@/assets/founder-portrait.jpg";
+import uniformsImage from "@/assets/team-uniforms.jpg";
+import handsInImage from "@/assets/team-hands-in.jpg";
 import { Link } from "react-router";
 import { email, whatsapp } from "@/lib/contact";
 
@@ -73,6 +75,38 @@ const Team = () => (
             That knowledge has carried across generations. Samuel took on the trade and now sees
             beekeeping as his mission: helping other refugees work their way out of poverty.
           </p>
+        </div>
+      </div>
+    </section>
+
+    {/* The wider team */}
+    <section className="bg-ink text-paper">
+      <div className="container grid gap-10 py-16 md:py-24 lg:grid-cols-12">
+        <div className="lg:col-span-4">
+          <h2 className="type-display text-[clamp(2.25rem,4.5vw,3.5rem)]">The OFTAC team</h2>
+          <p className="mt-5 font-serif text-lg leading-relaxed text-paper/75">
+            Samuel works alongside a group of young OFTAC members from the Kyangwali community.
+          </p>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:col-span-8">
+          <figure>
+            <img
+              src={uniformsImage}
+              alt="Seven OFTAC members in matching blue polo shirts standing on grass"
+              loading="lazy"
+              className="aspect-[4/5] w-full object-cover"
+            />
+            <figcaption className="mt-2 text-sm text-paper/55">September 2022</figcaption>
+          </figure>
+          <figure>
+            <img
+              src={handsInImage}
+              alt="OFTAC members stacking their hands together outside a building"
+              loading="lazy"
+              className="aspect-[4/5] w-full object-cover"
+            />
+            <figcaption className="mt-2 text-sm text-paper/55">August 2022</figcaption>
+          </figure>
         </div>
       </div>
     </section>
