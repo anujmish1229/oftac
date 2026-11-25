@@ -1,185 +1,134 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { Droplets, Sparkles, Leaf, Heart, ShieldCheck, Users } from "lucide-react";
-import { CONTACT_EMAIL } from "@/lib/contact";
+import { email, whatsapp } from "@/lib/contact";
 
 const products = [
   {
-    id: 1,
     name: "Raw Honey",
-    tagline: "Pure & Unprocessed",
-    description: "Natural, unprocessed honey rich in nutrients. Serves as a natural sweetener and health supplement with all enzymes and nutrients preserved.",
-    price: "$25",
-    size: "500g",
-    icon: Droplets,
-    features: ["Rich in antioxidants", "Natural enzymes preserved", "Supports immune health", "Combat malnutrition"],
-    primary: true,
+    tagline: "Pure and unprocessed",
+    body: "Natural, unprocessed honey with its enzymes and nutrients intact. A natural sweetener and an everyday health food.",
+    points: ["Rich in antioxidants", "Natural enzymes preserved", "Supports immune health", "Helps combat malnutrition"],
+    tone: "bg-honey",
   },
   {
-    id: 2,
     name: "Bee Venom",
-    tagline: "Medicinal Grade",
-    description: "Highly valuable bee venom used in various medicinal products, including treatments for arthritis and other health conditions.",
-    price: "$120",
-    size: "10g",
-    icon: Sparkles,
-    features: ["Medicinal applications", "Arthritis treatment", "High market value", "Sustainably harvested"],
-    primary: false,
+    tagline: "Medicinal grade",
+    body: "A high-value product used in medicinal treatments, including for arthritis and other conditions. Harvested sustainably from our hives.",
+    points: ["Medicinal applications", "Used in arthritis treatment", "High market value", "Sustainably harvested"],
+    tone: "bg-paper-deep",
   },
 ];
 
-const differentiators = [
+const reasons = [
   {
-    icon: ShieldCheck,
-    title: "Quality and Purity",
-    description: "Our honey is raw and unprocessed, retaining all natural nutrients and enzymes, unlike pasteurized commercial honey.",
+    title: "Raw and pure",
+    body: "Our honey is raw and unprocessed. Unlike pasteurised commercial honey, it keeps its natural nutrients and enzymes.",
   },
   {
-    icon: Users,
-    title: "Community-Based Production",
-    description: "Every purchase supports economic empowerment, refugee self-reliance, and community resilience.",
+    title: "Made by the community",
+    body: "Every purchase pays refugee beekeepers directly and builds their self-reliance.",
   },
   {
-    icon: Leaf,
-    title: "Organic and Sustainable",
-    description: "Produced with minimal environmental impact using locally available materials and sustainable practices.",
+    title: "Low-impact production",
+    body: "Produced with locally available materials and practices that are gentle on the land.",
   },
 ];
 
-const Shop = () => {
-  return (
-    <div className="min-h-screen">
-      <Header />
-      <main className="pt-20">
-        {/* Hero Section */}
-        <section className="py-20 lg:py-32 bg-linear-to-b from-cream to-background">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto text-center">
-              <span className="inline-block px-4 py-1.5 bg-honey/20 text-honey-dark rounded-full text-sm font-medium mb-6">
-                Shop With Purpose
-              </span>
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-                Our
-                <span className="text-honey"> Products</span>
-              </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                Every purchase directly supports refugee families in their journey toward financial independence 
-                through sustainable beekeeping.
-              </p>
-            </div>
+const steps = [
+  "Message us on WhatsApp or by email with the product and the quantity you'd like.",
+  "We reply with the current price and how we can get it to you.",
+  "Pay, and receive your order.",
+];
+
+const Shop = () => (
+  <>
+    <section className="container grid gap-6 pb-12 pt-14 md:grid-cols-12 md:pb-16 md:pt-20">
+      <div className="md:col-span-7">
+        <p className="marker mb-5 text-muted">Shop</p>
+        <h1 className="type-display text-[clamp(3rem,7vw,5.75rem)]">Honey from Kyangwali</h1>
+      </div>
+      <p className="font-serif text-lg leading-relaxed text-ink-soft md:col-span-4 md:col-start-9 md:self-end">
+        Every purchase supports refugee families working toward financial independence. We take
+        orders directly. Prices are on request.
+      </p>
+    </section>
+
+    {/* Products */}
+    <section className="container space-y-4 pb-16 md:pb-24">
+      {products.map((p) => (
+        <article key={p.name} className={`${p.tone} grid gap-8 p-7 md:grid-cols-12 md:p-10`}>
+          <div className="md:col-span-4">
+            <h2 className="type-display text-[clamp(2.5rem,5vw,4rem)]">{p.name}</h2>
+            <p className="mt-2 font-semibold">{p.tagline}</p>
           </div>
-        </section>
-
-        {/* Products Grid */}
-        <section className="py-20 lg:py-32 bg-background">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {products.map((product) => (
-                <div
-                  key={product.id}
-                  className={`rounded-3xl p-8 lg:p-10 border-2 transition-all duration-300 hover:shadow-xl ${
-                    product.primary 
-                      ? "bg-linear-to-br from-honey/10 to-honey/5 border-honey" 
-                      : "bg-card border-border hover:border-honey/50"
-                  }`}
-                >
-                  <div className="flex items-start justify-between mb-6">
-                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${
-                      product.primary ? "bg-honey" : "bg-honey/20"
-                    }`}>
-                      <product.icon className={`w-8 h-8 ${
-                        product.primary ? "text-secondary" : "text-honey"
-                      }`} />
-                    </div>
-                    {product.primary && (
-                      <span className="px-3 py-1 bg-honey text-secondary text-xs font-semibold rounded-full">
-                        Primary Product
-                      </span>
-                    )}
-                  </div>
-
-                  <h3 className="font-display text-2xl lg:text-3xl font-bold text-foreground mb-2">
-                    {product.name}
-                  </h3>
-                  <p className="text-honey font-medium mb-4">{product.tagline}</p>
-                  <p className="text-muted-foreground mb-6">{product.description}</p>
-
-                  <ul className="space-y-2 mb-8">
-                    {product.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Heart className="w-4 h-4 text-honey shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="flex items-end justify-between pt-6 border-t border-border">
-                    <div>
-                      <p className="text-3xl font-display font-bold text-foreground">{product.price}</p>
-                      <p className="text-sm text-muted-foreground">per {product.size}</p>
-                    </div>
-                    <Button className={product.primary ? "" : "bg-secondary text-secondary-foreground hover:bg-secondary/90"} asChild>
-                      <a href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Order: ${product.name}`)}`}>
-                        Contact to Order
-                      </a>
-                    </Button>
-                  </div>
-                </div>
+          <div className="md:col-span-5">
+            <p className="font-serif text-lg leading-relaxed">{p.body}</p>
+            <ul className="mt-5 grid grid-cols-1 border-t border-ink/20 text-sm sm:grid-cols-2">
+              {p.points.map((pt) => (
+                <li key={pt} className="border-b border-ink/20 py-2.5 sm:odd:pr-4">
+                  {pt}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
-        </section>
-
-        {/* What Makes Us Different */}
-        <section className="py-20 lg:py-32 bg-secondary text-secondary-foreground">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="inline-block px-4 py-1.5 bg-honey/20 text-honey-light rounded-full text-sm font-medium mb-4">
-                Why Choose Us
-              </span>
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-                What Makes Our Products Different
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {differentiators.map((item) => (
-                <div
-                  key={item.title}
-                  className="bg-forest-light/30 backdrop-blur-xs rounded-2xl p-8 border border-secondary-foreground/10 text-center"
-                >
-                  <div className="w-14 h-14 rounded-full bg-honey/20 flex items-center justify-center mx-auto mb-6">
-                    <item.icon className="w-7 h-7 text-honey" />
-                  </div>
-                  <h3 className="font-display text-xl font-bold mb-3">{item.title}</h3>
-                  <p className="text-secondary-foreground/80">{item.description}</p>
-                </div>
-              ))}
-            </div>
+          <div className="flex flex-col gap-3 md:col-span-3 md:items-stretch">
+            <p className="text-sm">
+              <span className="block text-ink/60">Price</span>
+              <span className="font-semibold">On request</span>
+            </p>
+            <a
+              href={whatsapp(`Hello OFTAC, I'd like to order ${p.name}.`)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn bg-ink text-paper hover:bg-forest"
+            >
+              Order on WhatsApp
+            </a>
+            <a href={email(`Order: ${p.name}`)} className="btn border border-ink/40 hover:border-ink">
+              Order by email
+            </a>
           </div>
-        </section>
+        </article>
+      ))}
+    </section>
 
-        {/* Contact CTA */}
-        <section className="py-20 bg-cream">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
-                Interested in Ordering?
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Contact us directly to place an order or inquire about bulk purchases and partnerships.
-              </p>
-              <Button size="lg" asChild>
-                <a href={`mailto:${CONTACT_EMAIL}`}>Get in Touch</a>
-              </Button>
+    {/* Why */}
+    <section className="bg-ink text-paper">
+      <div className="container py-16 md:py-24">
+        <h2 className="type-display max-w-2xl text-[clamp(2.25rem,4.5vw,3.5rem)]">
+          What makes our products different
+        </h2>
+        <div className="mt-10 grid gap-8 md:grid-cols-3">
+          {reasons.map((r) => (
+            <div key={r.title} className="border-t-2 border-honey pt-5">
+              <h3 className="text-xl font-semibold">{r.title}</h3>
+              <p className="mt-2 font-serif text-lg leading-relaxed text-paper/75">{r.body}</p>
             </div>
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </div>
-  );
-};
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* How ordering works */}
+    <section className="container grid gap-8 py-16 md:grid-cols-12 md:py-20">
+      <div className="md:col-span-4">
+        <h2 className="type-display text-[clamp(2rem,4vw,3rem)]">How ordering works</h2>
+        <p className="mt-4 text-ink-soft">
+          Buying in bulk or looking to stock our honey?{" "}
+          <a href={email("Bulk order / partnership")} className="arrow-link">
+            Email us
+          </a>
+          .
+        </p>
+      </div>
+      <ol className="grid gap-6 sm:grid-cols-3 md:col-span-8">
+        {steps.map((s, i) => (
+          <li key={s} className="border-t-2 border-ink pt-4">
+            <span className="type-display text-4xl text-honey-deep">{i + 1}</span>
+            <p className="mt-2 leading-relaxed">{s}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+  </>
+);
 
 export default Shop;
