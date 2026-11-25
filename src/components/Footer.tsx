@@ -98,13 +98,23 @@ export const Footer = ({ showCta = true }: { showCta?: boolean }) => (
     <div className="relative bg-ink">
       <div className="container flex flex-col gap-3 border-t border-paper/10 py-5 text-sm text-paper/55 sm:flex-row sm:items-center sm:justify-between">
         <p>© {new Date().getFullYear()} OFTAC. Registered community-based organization in Uganda.</p>
-        <button
-          type="button"
-          onClick={() => window.scrollTo({ top: 0 })}
-          className="self-start text-paper/80 underline-offset-4 hover:text-paper hover:underline sm:self-auto"
-        >
-          Back to top ↑
-        </button>
+        <div className="flex items-center gap-5">
+          <a
+            href="https://anujmishra.dev"
+            target="_blank"
+            rel="noopener"
+            className="text-xs text-paper/35 transition-colors hover:text-paper/70"
+          >
+            Site by Anuj Mishra
+          </a>
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0 })}
+            className="text-paper/80 underline-offset-4 hover:text-paper hover:underline"
+          >
+            Back to top ↑
+          </button>
+        </div>
       </div>
     </div>
   </footer>

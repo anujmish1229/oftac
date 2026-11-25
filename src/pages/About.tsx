@@ -1,4 +1,5 @@
-import heroImage from "@/assets/hero-beekeeping.jpg";
+import meetingImage from "@/assets/community-meeting.jpg";
+import handsInImage from "@/assets/team-hands-in.jpg";
 
 const components = [
   {
@@ -67,11 +68,17 @@ const About = () => (
       <div className="lg:col-span-5">
         <div className="lg:sticky lg:top-24">
           <h2 className="type-display text-[clamp(2.25rem,4.5vw,3.5rem)]">How it works</h2>
-          <img
-            src={heroImage}
-            alt="Hives in the Kyangwali settlement"
-            className="mt-8 aspect-[4/3] w-full object-cover"
-          />
+          <figure className="mt-8">
+            <img
+              src={meetingImage}
+              alt="OFTAC members speaking with a group of seated women in Kyangwali"
+              loading="lazy"
+              className="aspect-[4/3] w-full object-cover"
+            />
+            <figcaption className="mt-2 text-sm text-muted">
+              Meeting with households in Kyangwali, May 2022
+            </figcaption>
+          </figure>
         </div>
       </div>
       <ol className="lg:col-span-6 lg:col-start-7">
@@ -133,6 +140,15 @@ const About = () => (
             <dd className="font-semibold">Refugee households and youth</dd>
           </div>
         </dl>
+        <figure className="md:col-span-12 md:mt-6">
+          <img
+            src={handsInImage}
+            alt="OFTAC members stacking their hands together outside a building in Kyangwali"
+            loading="lazy"
+            className="aspect-[21/9] w-full object-cover object-[50%_70%]"
+          />
+          <figcaption className="mt-2 text-sm text-muted">OFTAC members in Kyangwali, August 2022</figcaption>
+        </figure>
       </div>
     </section>
   </>

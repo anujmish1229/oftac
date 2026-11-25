@@ -1,4 +1,6 @@
 import { Link } from "react-router";
+import booksImage from "@/assets/children-books.jpg";
+import groupImage from "@/assets/community-group.jpg";
 import { CONTACT_EMAIL, WHATSAPP_DISPLAY, email, whatsapp } from "@/lib/contact";
 
 const figures = [
@@ -88,6 +90,19 @@ const Donate = () => (
       </dl>
     </section>
 
+    {/* Photo */}
+    <figure className="relative">
+      <img
+        src={groupImage}
+        alt="A large group of women, men and OFTAC members gathered on chairs outdoors in Kyangwali"
+        loading="lazy"
+        className="h-[clamp(16rem,40vw,30rem)] w-full object-cover object-[50%_40%]"
+      />
+      <figcaption className="absolute bottom-0 left-0 bg-ink px-4 py-3 text-sm text-paper">
+        A community meeting in Kyangwali, May 2022
+      </figcaption>
+    </figure>
+
     {/* Methods */}
     <section className="container grid gap-10 py-16 md:grid-cols-2 md:py-20">
       <div className="border-t-2 border-ink pt-6">
@@ -109,9 +124,17 @@ const Donate = () => (
     {/* Why it lasts */}
     <section className="bg-forest text-paper">
       <div className="container grid gap-8 py-16 md:grid-cols-12 md:py-20">
-        <h2 className="type-display text-[clamp(2.25rem,4.5vw,3.5rem)] md:col-span-5">
-          A hive keeps producing. Aid runs out.
-        </h2>
+        <div className="md:col-span-5">
+          <h2 className="type-display text-[clamp(2.25rem,4.5vw,3.5rem)]">
+            A hive keeps producing. Aid runs out.
+          </h2>
+          <img
+            src={booksImage}
+            alt="Children and adults holding up exercise books with OFTAC members"
+            loading="lazy"
+            className="mt-8 aspect-[3/2] w-full object-cover"
+          />
+        </div>
         <div className="md:col-span-6 md:col-start-7">
           <p className="font-serif text-lg leading-relaxed text-paper/85">
             Instead of temporary relief, your support gives families skills and equipment that

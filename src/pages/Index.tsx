@@ -1,6 +1,8 @@
 import { Link } from "react-router";
 import heroImage from "@/assets/hero-beekeeping.jpg";
 import founderImage from "@/assets/founder-portrait.jpg";
+import meetingImage from "@/assets/community-meeting.jpg";
+import booksImage from "@/assets/children-books.jpg";
 import { HexButtons } from "@/components/HexButtons";
 
 const figures = [
@@ -146,6 +148,34 @@ const Index = () => (
             How the project works →
           </Link>
         </aside>
+      </div>
+    </section>
+
+    {/* In the community */}
+    <section className="bg-paper-deep">
+      <div className="container grid gap-4 py-16 md:grid-cols-12 md:py-20">
+        <div className="md:col-span-12 md:mb-4 md:flex md:items-end md:justify-between">
+          <h2 className="type-display text-[clamp(2rem,4vw,3rem)]">In the community</h2>
+          <p className="mt-2 text-sm text-muted md:mt-0">Photos from OFTAC's work in Kyangwali</p>
+        </div>
+        <figure className="md:col-span-8">
+          <img
+            src={meetingImage}
+            alt="OFTAC members in blue polo shirts speaking with a group of seated women in Kyangwali"
+            loading="lazy"
+            className="aspect-[16/9] w-full object-cover"
+          />
+          <figcaption className="mt-2 text-sm text-muted">Meeting with households, May 2022</figcaption>
+        </figure>
+        <figure className="md:col-span-4">
+          <img
+            src={booksImage}
+            alt="Children and adults holding up exercise books with OFTAC members"
+            loading="lazy"
+            className="aspect-[16/9] w-full object-cover md:aspect-auto md:h-[calc(100%-1.75rem)]"
+          />
+          <figcaption className="mt-2 text-sm text-muted">With families in the settlement, December 2023</figcaption>
+        </figure>
       </div>
     </section>
 
