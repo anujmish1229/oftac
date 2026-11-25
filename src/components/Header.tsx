@@ -1,80 +1,111 @@
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
-import { Link, useLocation } from "react-router";
+import { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router";
 import logo from "@/assets/logo.png";
+import { CONTACT_EMAIL, WHATSAPP_DISPLAY, WHATSAPP_URL } from "@/lib/contact";
 
-const navLinks = [
-  { name: "Home", href: "/" },
+const links = [
   { name: "About", href: "/about" },
-  { name: "Our Team", href: "/team" },
+  { name: "Team", href: "/team" },
   { name: "Shop", href: "/shop" },
   { name: "Contact", href: "/contact" },
-  { name: "Donate", href: "/donate" },
 ];
 
 export const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
+  const { pathname } = useLocation();
+  // The menu remembers the page it was opened on, so navigating closes it.
+  const [openOn, setOpenOn] = useState<string | null>(null);
+  const open = openOn === pathname;
+  const setOpen = (next: boolean | ((v: boolean) => boolean)) =>
+    setOpenOn((typeof next === "function" ? next(open) : next) ? pathname : null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpenOn(null);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-right justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <img src={logo} alt="OFTAC Logo" className="w-10 h-10" />
-            <span className="font-display text-xl font-semibold text-foreground hidden sm:block">
-              OFTAC
-            </span>
-          </Link>
+    <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper">
+      <div className="container flex h-14 items-center gap-6">
+        <Link to="/" className="flex shrink-0 items-center gap-2.5" aria-label="OFTAC home">
+          <img src={logo} alt="" className="h-8 w-8" />
+          <span className="type-display text-[1.6rem] leading-none tracking-wide">OFTAC</span>
+        </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex justify-end items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                className={`transition-colors duration-200 font-medium text-sm ${
-                  location.pathname === link.href
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </nav>
+        <nav aria-label="Main" className="hidden h-full items-stretch md:flex">
+          {links.map((link) => (
+            <NavLink
+              key={link.href}
+              to={link.href}
+              className={({ isActive }) =>
+                `relative flex items-center px-3.5 text-[0.9375rem] font-medium transition-colors ${
+                  isActive
+                    ? "text-ink after:absolute after:inset-x-3.5 after:bottom-0 after:h-[3px] after:bg-honey"
+                    : "text-ink-soft hover:text-ink"
+                }`
+              }
+            >
+              {link.name}
+            </NavLink>
+          ))}
+        </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 text-foreground"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
+        <div className="ml-auto flex items-center gap-4">
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden text-sm text-ink-soft transition-colors hover:text-ink lg:block"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            WhatsApp <span className="font-semibold text-ink">{WHATSAPP_DISPLAY}</span>
+          </a>
+          <Link to="/donate" className="btn h-9 bg-ink px-4 text-paper hover:bg-forest">
+            Donate
+          </Link>
+          <button
+            type="button"
+            className="btn h-9 border border-ink/25 px-3 md:hidden"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? "Close" : "Menu"}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="lg:hidden bg-background border-t border-border animate-fade-in">
-          <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
+      {open && (
+        <div id="mobile-nav" className="border-t border-ink/10 bg-paper md:hidden">
+          <nav aria-label="Mobile" className="container py-2">
+            {[{ name: "Home", href: "/" }, ...links].map((link) => (
+              <NavLink
+                key={link.href}
                 to={link.href}
-                className={`transition-colors duration-200 font-medium py-2 ${
-                  location.pathname === link.href
-                    ? "text-primary"
-                    : "text-foreground hover:text-primary"
-                }`}
-                onClick={() => setIsMenuOpen(false)}
+                end
+                className={({ isActive }) =>
+                  `flex items-center justify-between border-b border-ink/10 py-3.5 text-lg font-medium ${
+                    isActive ? "text-ink" : "text-ink-soft"
+                  }`
+                }
               >
-                {link.name}
-              </Link>
+                {({ isActive }) => (
+                  <>
+                    {link.name}
+                    {isActive && <span className="h-2 w-2 bg-honey" aria-hidden="true" />}
+                  </>
+                )}
+              </NavLink>
             ))}
           </nav>
+          <div className="container grid gap-1 pb-5 pt-3 text-sm">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="py-1">
+              WhatsApp <span className="font-semibold">{WHATSAPP_DISPLAY}</span>
+            </a>
+            <a href={`mailto:${CONTACT_EMAIL}`} className="py-1">
+              {CONTACT_EMAIL}
+            </a>
+          </div>
         </div>
       )}
     </header>

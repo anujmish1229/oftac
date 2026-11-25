@@ -1,121 +1,133 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { WaysToDonate } from "@/components/WaysToDonate";
-import { CONTACT_EMAIL } from "@/lib/contact";
-import { Heart } from "lucide-react";
+import { Link } from "react-router";
+import { CONTACT_EMAIL, WHATSAPP_DISPLAY, email, whatsapp } from "@/lib/contact";
 
-const impactStats = [
-  { value: "$1,800", label: "Potential annual income per trained beekeeper" },
-  { value: "50kg", label: "Honey produced per beekeeper annually" },
-  { value: "4 months", label: "Comprehensive training program duration" },
-  { value: "50+", label: "Households already achieving independence" },
+const figures = [
+  { value: "US$1,800", label: "potential yearly income per trained beekeeper's household" },
+  { value: "50 kg", label: "of honey a trained beekeeper can produce each year" },
+  { value: "4 months", label: "of hands-on beekeeping training" },
+  { value: "79", label: "people producing honey as of January 2025" },
 ];
 
-const Donate = () => {
-  return (
-    <div className="min-h-screen">
-      <Header />
-      <main className="pt-20">
-        {/* Hero Section */}
-        <section className="py-20 lg:py-32 bg-linear-to-b from-cream to-background relative overflow-hidden">
-          <div className="absolute inset-0 honeycomb-pattern opacity-30" />
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-honey/20 rounded-full mb-8">
-                <Heart className="w-10 h-10 text-honey" />
-              </div>
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-                Transform Lives Through
-                <span className="text-honey"> Giving</span>
-              </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-                Your donation directly empowers refugee families to build sustainable livelihoods 
-                through beekeeping, breaking the cycle of dependency on external aid.
-              </p>
-            </div>
-          </div>
-        </section>
+const steps = [
+  {
+    title: "Get in touch",
+    body: "Message us on WhatsApp or send an email saying you'd like to donate.",
+  },
+  {
+    title: "Receive the details",
+    body: "We send you Mobile Money or bank details, or arrange an international transfer.",
+  },
+  {
+    title: "Send your gift",
+    body: "Include your name and email address with the transfer so we can send you a receipt.",
+  },
+];
 
-        {/* Impact Stats */}
-        <section className="py-12 bg-primary">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-              {impactStats.map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <p className="text-3xl md:text-4xl font-display font-bold text-primary-foreground mb-1">
-                    {stat.value}
-                  </p>
-                  <p className="text-sm text-primary-foreground/80">{stat.label}</p>
+const Donate = () => (
+  <>
+    <section className="grid lg:grid-cols-12">
+      <div className="bg-honey lg:col-span-6">
+        <div className="container py-14 md:py-20 lg:ml-auto lg:mr-0 lg:max-w-[40rem] lg:pr-12">
+          <p className="marker mb-5">Donate</p>
+          <h1 className="type-display text-[clamp(3rem,7vw,5.75rem)]">
+            Give a family the tools to earn.
+          </h1>
+          <p className="mt-6 max-w-lg font-serif text-lg leading-relaxed">
+            Your donation pays for beehives, training and ongoing support, so refugee families in
+            Kyangwali can build a livelihood of their own instead of depending on aid.
+          </p>
+        </div>
+      </div>
+
+      <div className="lg:col-span-6">
+        <div className="container py-14 md:py-20 lg:ml-0 lg:max-w-[40rem] lg:pl-12">
+          <h2 className="text-2xl font-semibold">How to give</h2>
+          <ol className="mt-6 border-t-2 border-ink">
+            {steps.map((s, i) => (
+              <li key={s.title} className="grid grid-cols-[2.5rem_1fr] border-b border-ink/15 py-5">
+                <span className="type-display text-3xl text-honey-deep">{i + 1}</span>
+                <div>
+                  <h3 className="font-semibold">{s.title}</h3>
+                  <p className="mt-1 leading-relaxed text-ink-soft">{s.body}</p>
                 </div>
-              ))}
-            </div>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <a
+              href={whatsapp("Hello OFTAC, I'd like to make a donation.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn bg-ink text-paper hover:bg-forest"
+            >
+              WhatsApp {WHATSAPP_DISPLAY}
+            </a>
+            <a href={email("Donation to OFTAC")} className="btn border border-ink/40 hover:border-ink">
+              Email us
+            </a>
           </div>
-        </section>
+          <p className="mt-4 text-sm text-muted">{CONTACT_EMAIL}</p>
+        </div>
+      </div>
+    </section>
 
-        {/* Ways to Donate */}
-        <section className="py-20 lg:py-32 bg-background">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="inline-block px-4 py-1.5 bg-honey/20 text-honey-dark rounded-full text-sm font-medium mb-4">
-                Make an Impact
-              </span>
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-                Ways to Give
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Every contribution, no matter the size, creates lasting change in the lives of refugee families.
-              </p>
-            </div>
-
-            <WaysToDonate />
+    {/* Figures */}
+    <section className="bg-ink text-paper">
+      <dl className="container grid grid-cols-2 lg:grid-cols-4">
+        {figures.map((f, i) => (
+          <div
+            key={f.label}
+            className={`py-9 pr-4 ${i > 0 ? "lg:border-l lg:border-paper/15 lg:pl-6" : ""} ${
+              i % 2 === 1 ? "border-l border-paper/15 pl-4" : ""
+            } ${i >= 2 ? "border-t border-paper/15 lg:border-t-0" : ""}`}
+          >
+            <dd className="type-display text-[clamp(2.25rem,4vw,3.25rem)] text-honey">{f.value}</dd>
+            <dt className="mt-2 text-sm text-paper/70">{f.label}</dt>
           </div>
-        </section>
+        ))}
+      </dl>
+    </section>
 
-        {/* Why Donate */}
-        <section className="py-20 lg:py-32 bg-secondary text-secondary-foreground">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="font-display text-3xl sm:text-4xl font-bold mb-6">
-                  Your Donation Creates Lasting Change
-                </h2>
-              </div>
+    {/* Methods */}
+    <section className="container grid gap-10 py-16 md:grid-cols-2 md:py-20">
+      <div className="border-t-2 border-ink pt-6">
+        <h2 className="text-2xl font-semibold">From inside Uganda</h2>
+        <p className="mt-3 font-serif text-lg leading-relaxed text-ink-soft">
+          We accept MTN Mobile Money, Airtel Money and bank transfers. Message us and we'll share
+          the account details.
+        </p>
+      </div>
+      <div className="border-t-2 border-ink pt-6">
+        <h2 className="text-2xl font-semibold">From abroad</h2>
+        <p className="mt-3 font-serif text-lg leading-relaxed text-ink-soft">
+          Giving from outside Uganda? Contact us and we'll arrange an international transfer with
+          you.
+        </p>
+      </div>
+    </section>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="bg-forest-light/30 backdrop-blur-xs rounded-2xl p-8 border border-secondary-foreground/10">
-                  <h3 className="font-display text-xl font-bold mb-4">Breaking the Cycle</h3>
-                  <p className="text-secondary-foreground/80">
-                    Instead of temporary relief, your support provides skills and resources that 
-                    generate income for years to come. Each trained beekeeper becomes a beacon 
-                    of hope for their entire community.
-                  </p>
-                </div>
-                <div className="bg-forest-light/30 backdrop-blur-xs rounded-2xl p-8 border border-secondary-foreground/10">
-                  <h3 className="font-display text-xl font-bold mb-4">Transparent Impact</h3>
-                  <p className="text-secondary-foreground/80">
-                    100% of your donation goes directly to supporting refugee families through 
-                    beehives, training, and ongoing support. We believe in complete transparency 
-                    and accountability.
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-12 text-center">
-                <p className="text-lg text-secondary-foreground/80 mb-6">
-                  Questions about donating or want to discuss partnership opportunities?
-                </p>
-                <Button size="lg" className="bg-honey text-secondary hover:bg-honey-light" asChild>
-                  <a href={`mailto:${CONTACT_EMAIL}`}>Contact Our Team</a>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </div>
-  );
-};
+    {/* Why it lasts */}
+    <section className="bg-forest text-paper">
+      <div className="container grid gap-8 py-16 md:grid-cols-12 md:py-20">
+        <h2 className="type-display text-[clamp(2.25rem,4.5vw,3.5rem)] md:col-span-5">
+          A hive keeps producing. Aid runs out.
+        </h2>
+        <div className="md:col-span-6 md:col-start-7">
+          <p className="font-serif text-lg leading-relaxed text-paper/85">
+            Instead of temporary relief, your support gives families skills and equipment that
+            keep earning for years, for the household and for the community around it.
+          </p>
+          <p className="mt-6 text-paper/70">
+            Want to talk about a larger gift or a partnership?{" "}
+            <Link to="/contact" className="arrow-link text-honey-light">
+              Contact us
+            </Link>
+            .
+          </p>
+        </div>
+      </div>
+    </section>
+  </>
+);
 
 export default Donate;

@@ -24,8 +24,8 @@ I designed and built the site end to end: information architecture, UI, content 
 | Framework  | React 19 + TypeScript                                     |
 | Build tool | Vite 8                                                    |
 | Routing    | React Router 7                                            |
-| Styling    | Tailwind CSS 4 + two [shadcn/ui](https://ui.shadcn.com) primitives (button, card) |
-| Icons      | lucide-react                                              |
+| Styling    | Tailwind CSS 4, no component library                      |
+| Type       | Archivo (display, UI) and Source Serif 4 (body), Google Fonts |
 | Hosting    | Netlify (static, auto-deploys from `main`)                |
 | CI         | GitHub Actions: lint, typecheck, build                    |
 
@@ -42,19 +42,17 @@ Browser ──► Netlify CDN ──► index.html + hashed JS/CSS bundles
 
 - `public/_redirects` sends every path to `index.html` so deep links work with client-side routing.
 - Donations and shop orders open WhatsApp or a pre-filled email. The site takes no payments directly, so it holds no payment keys.
-- Contact details live in a single module (`src/lib/contact.ts`) shared by the Contact, Donate and Shop pages.
+- Contact details and the WhatsApp/email link helpers live in a single module (`src/lib/contact.ts`) used across the site.
 
 ```
 public/               _redirects, og-image.jpg, favicon.ico, robots.txt
 src/
   main.tsx            Entry point
   App.tsx             Route table
-  index.css           Tailwind import, theme tokens (honey, forest, cream), custom utilities
+  index.css           Tailwind import, colour tokens (ink, paper, honey, forest), type and button utilities
   pages/              One component per route
-  components/         Page sections (Header, Footer, HeroSection, WaysToDonate, …)
-  components/ui/      shadcn/ui primitives
-  components/icons/   Inline brand icons
-  lib/                contact.ts, utils.ts (cn helper)
+  components/         Layout (shared shell), Header, Footer, HexButtons
+  lib/                contact.ts
   assets/             Images bundled by Vite
 ```
 

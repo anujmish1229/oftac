@@ -1,144 +1,141 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { TrendingUp, Users, Hospital, Leaf, DollarSign, GraduationCap } from "lucide-react";
+import heroImage from "@/assets/hero-beekeeping.jpg";
 
-const projectComponents = [
+const components = [
   {
-    icon: Leaf,
-    title: "Beehives Distribution",
-    description: "OFTAC provides beehives to refugee households, with a focus on those most in need.",
+    title: "Beehive distribution",
+    body: "OFTAC provides beehives to refugee households, with a focus on those most in need.",
   },
   {
-    icon: GraduationCap,
-    title: "Comprehensive Training",
-    description: "Youth and households undergo a four-month detailed training on beekeeping techniques, including how to make beehives from local materials and how to harvest honey effectively.",
+    title: "Four-month training",
+    body: "Youth and households go through four months of detailed training in beekeeping technique, including how to build beehives from local materials and how to harvest honey properly.",
   },
   {
-    icon: Users,
-    title: "Ongoing Support",
-    description: "OFTAC provides ongoing support to help households maintain their beehives, market honey, and manage income generation. They also offer access to a demonstration farm for those who lack suitable land.",
+    title: "Ongoing support",
+    body: "After training, OFTAC keeps helping households maintain their hives, market their honey and manage the income. Families without suitable land can use a demonstration farm.",
   },
 ];
 
-const impactAreas = [
+const impact = [
   {
-    icon: DollarSign,
-    title: "Economic Empowerment & Financial Independence",
-    description: "By providing beekeeping training and support, the project aims to help refugee families create their own source of income. Each trained beekeeper can produce up to 50 kg of honey and 100 grams of bee venom annually, generating approximately $1,800 per household.",
+    title: "Economic independence",
+    body: "Beekeeping gives refugee families a source of income of their own. Each trained beekeeper can produce up to 50 kg of honey and 100 g of bee venom a year.",
+    figure: "≈ US$1,800",
+    figureNote: "potential yearly income per household",
   },
   {
-    icon: TrendingUp,
-    title: "Sustainable Employment for Youth",
-    description: "Through the project, youth who are self-reliant for funding their education and family expenses gain the opportunity to work in a minimally demanding setting. This is particularly beneficial for those with pre-existing conditions that limit their ability to engage in traditional jobs.",
+    title: "Work for young people",
+    body: "Many young people in the settlement pay for their own education and support their families. Beekeeping is work they can do alongside that, and it suits people whose health limits them from heavier jobs.",
   },
   {
-    icon: Hospital,
-    title: "Improvement in Nutrition and Health",
-    description: "The beekeeping project helps mitigate malnutrition and disease by making honey more accessible. Raw honey is rich in nutrients and antioxidants that support health, combat malnutrition, and fight diseases like diabetes and heart conditions.",
+    title: "Nutrition and health",
+    body: "Locally produced honey is easier to get hold of. Raw honey is rich in nutrients and antioxidants, which helps families fight malnutrition.",
   },
 ];
 
-const About = () => {
-  return (
-    <div className="min-h-screen">
-      <Header />
-      <main className="pt-20">
-        {/* Hero Section */}
-        <section className="py-20 lg:py-32 bg-linear-to-b from-cream to-background">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-                Empowering Through
-                <span className="text-honey"> Beekeeping</span>
-              </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                The primary goal of the beekeeping project is to provide vulnerable refugee households 
-                with a sustainable source of income through beekeeping, reducing their reliance 
-                on external aid.
-              </p>
-            </div>
-          </div>
-        </section>
+const About = () => (
+  <>
+    {/* Intro */}
+    <section className="container grid gap-8 pb-14 pt-14 md:grid-cols-12 md:pb-20 md:pt-20">
+      <div className="md:col-span-6">
+        <p className="marker mb-5 text-muted">The project</p>
+        <h1 className="type-display text-[clamp(3rem,7vw,5.75rem)]">
+          Beekeeping as a way out of aid dependency.
+        </h1>
+      </div>
+      <div className="md:col-span-5 md:col-start-8 md:self-end">
+        <p className="font-serif text-xl leading-relaxed text-ink-soft">
+          The goal is simple: give vulnerable refugee households a sustainable income from
+          beekeeping, so they rely less on outside aid. We believe that with the right tools,
+          training and support, refugees can build dignified, self-sufficient lives.
+        </p>
+      </div>
+    </section>
 
-        {/* Impact Stat */}
-        <section className="py-12 bg-primary">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center">
-              <div className="w-16 h-16 rounded-full bg-primary-foreground/20 flex items-center justify-center">
-                <Users className="w-8 h-8 text-primary-foreground" />
-              </div>
-              <div>
-                <p className="text-primary-foreground/80 text-lg">As of January 2025</p>
-                <p className="text-3xl md:text-4xl font-display font-bold text-primary-foreground">
-                  79 people are already producing honey and experiencing financial independence with a steady source of income
+    {/* Headline figure */}
+    <section className="bg-forest text-paper">
+      <div className="container flex flex-col gap-4 py-10 md:flex-row md:items-center md:gap-10">
+        <p className="type-display text-[clamp(4.5rem,11vw,8.5rem)] text-honey-light">79</p>
+        <p className="max-w-xl font-serif text-xl leading-snug md:text-2xl">
+          people are already producing honey and earning a steady income.
+          <span className="mt-2 block font-sans text-sm text-paper/60">As of January 2025</span>
+        </p>
+      </div>
+    </section>
+
+    {/* How it works */}
+    <section className="container grid gap-10 py-16 md:py-24 lg:grid-cols-12">
+      <div className="lg:col-span-5">
+        <div className="lg:sticky lg:top-24">
+          <h2 className="type-display text-[clamp(2.25rem,4.5vw,3.5rem)]">How it works</h2>
+          <img
+            src={heroImage}
+            alt="Hives in the Kyangwali settlement"
+            className="mt-8 aspect-[4/3] w-full object-cover"
+          />
+        </div>
+      </div>
+      <ol className="lg:col-span-6 lg:col-start-7">
+        {components.map((c, i) => (
+          <li key={c.title} className="border-t-2 border-ink py-8 first:pt-6">
+            <p className="type-display text-5xl text-honey">{String(i + 1).padStart(2, "0")}</p>
+            <h3 className="mt-3 text-2xl font-semibold">{c.title}</h3>
+            <p className="mt-3 font-serif text-lg leading-relaxed text-ink-soft">{c.body}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    {/* Expected impact */}
+    <section className="bg-ink text-paper">
+      <div className="container py-16 md:py-24">
+        <h2 className="type-display text-[clamp(2.25rem,4.5vw,3.5rem)]">Expected impact</h2>
+        <div className="mt-10">
+          {impact.map((row) => (
+            <article
+              key={row.title}
+              className="grid gap-4 border-t border-paper/15 py-8 md:grid-cols-12 md:gap-8"
+            >
+              <h3 className="text-xl font-semibold md:col-span-3">{row.title}</h3>
+              <p className="font-serif text-lg leading-relaxed text-paper/75 md:col-span-6">{row.body}</p>
+              {row.figure && (
+                <p className="md:col-span-3 md:text-right">
+                  <span className="type-display block text-4xl text-honey">{row.figure}</span>
+                  <span className="text-sm text-paper/55">{row.figureNote}</span>
                 </p>
-                <p className="text-primary-foreground/80 text-lg">and experiencing financial independence</p>
-              </div>
-            </div>
+              )}
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Who we are */}
+    <section className="bg-paper-deep">
+      <div className="container grid gap-8 py-16 md:grid-cols-12 md:py-20">
+        <h2 className="type-display text-[clamp(2rem,4vw,3rem)] md:col-span-4">Who we are</h2>
+        <p className="font-serif text-lg leading-relaxed text-ink-soft md:col-span-5">
+          OFTAC, the Organization for Transforming African Communities, has worked in Kyangwali for
+          almost three years and is now officially registered in Uganda as a community-based
+          organization. We are growing every year, driven by the resilience of the communities we
+          serve.
+        </p>
+        <dl className="grid content-start gap-4 text-sm md:col-span-3">
+          <div>
+            <dt className="text-muted">Based in</dt>
+            <dd className="font-semibold">Kyangwali Refugee Settlement</dd>
           </div>
-        </section>
-
-        {/* Project Components */}
-        <section className="py-20 lg:py-32 bg-background">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-                Components of the Project
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Our comprehensive approach ensures sustainable success for every household we work with.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {projectComponents.map((item) => (
-                <div
-                  key={item.title}
-                  className="bg-card rounded-2xl p-8 border border-border hover:border-honey/50 transition-all duration-300 group hover:shadow-lg"
-                >
-                  <div className="w-16 h-16 rounded-2xl bg-honey/20 flex items-center justify-center mb-6 group-hover:bg-honey group-hover:scale-110 transition-all duration-300">
-                    <item.icon className="w-8 h-8 text-honey group-hover:text-secondary transition-colors duration-300" />
-                  </div>
-                  <h3 className="font-display text-xl font-bold text-card-foreground mb-3">{item.title}</h3>
-                  <p className="text-muted-foreground">{item.description}</p>
-                </div>
-              ))}
-            </div>
+          <div>
+            <dt className="text-muted">Status</dt>
+            <dd className="font-semibold">Registered community-based organization</dd>
           </div>
-        </section>
-
-        {/* Expected Impact */}
-        <section className="py-20 lg:py-32 bg-secondary text-secondary-foreground">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-                Expected Impact
-              </h2>
-              <p className="text-lg text-secondary-foreground/80">
-                Our beekeeping initiative creates lasting change across multiple dimensions of life.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {impactAreas.map((item) => (
-                <div
-                  key={item.title}
-                  className="bg-forest-light/30 backdrop-blur-xs rounded-2xl p-8 border border-secondary-foreground/10"
-                >
-                  <div className="w-14 h-14 rounded-full bg-honey/20 flex items-center justify-center mb-6">
-                    <item.icon className="w-7 h-7 text-honey" />
-                  </div>
-                  <h3 className="font-display text-xl font-bold mb-4">{item.title}</h3>
-                  <p className="text-secondary-foreground/80 leading-relaxed">{item.description}</p>
-                </div>
-              ))}
-            </div>
+          <div>
+            <dt className="text-muted">Works with</dt>
+            <dd className="font-semibold">Refugee households and youth</dd>
           </div>
-        </section>
-      </main>
-      <Footer />
-    </div>
-  );
-};
+        </dl>
+      </div>
+    </section>
+  </>
+);
 
 export default About;
