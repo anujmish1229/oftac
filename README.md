@@ -1,4 +1,4 @@
-# OFTAC — Organization for Transforming African Communities
+# OFTAC: Organization for Transforming African Communities
 
 Website for OFTAC, a community-based organization that helps refugee families in the Kyangwali settlement in Uganda build sustainable incomes through beekeeping. The site tells the project's story, introduces the team, lists honey products, and explains how to donate.
 
@@ -40,7 +40,7 @@ I designed and built the site end to end: information architecture, UI, content 
 | ---------- | --------------------------------------------------------- |
 | Framework  | React 19 + TypeScript                                     |
 | Build tool | Vite 8                                                    |
-| Routing    | React Router 7                                            |
+| Routing    | React Router 8                                            |
 | Styling    | Tailwind CSS 4, no component library                      |
 | Type       | Archivo (display, UI) and Source Serif 4 (body), Google Fonts |
 | Hosting    | Netlify (static, auto-deploys from `main`)                |
